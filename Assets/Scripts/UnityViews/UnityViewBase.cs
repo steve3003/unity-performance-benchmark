@@ -16,7 +16,7 @@ public abstract class UnityViewBase : MonoBehaviour, IPerformanceTest
         Run();
     }
 
-    public void Run()
+    public virtual void Run()
     {
         performanceTest.Run();
     }
