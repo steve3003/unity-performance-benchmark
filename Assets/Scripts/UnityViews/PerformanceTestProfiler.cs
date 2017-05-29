@@ -12,6 +12,11 @@ public class PerformanceTestProfiler : UnityViewBase
 
     private CustomSampler sampler;
 
+    public CustomSampler Sampler
+    {
+        get { return sampler; }
+    }
+
     void OnValidate()
     {
         if (useObjectName)
