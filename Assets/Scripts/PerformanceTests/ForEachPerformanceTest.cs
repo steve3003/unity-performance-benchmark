@@ -1,21 +1,17 @@
 ﻿using System.Collections.Generic;
 
-public class ForEachPerformanceTest : IPerformanceTest
+public class ForEachPerformanceTest<T> : IPerformanceTest
 {
-    private readonly List<int> list;
+    private readonly IEnumerable<T> enumerable;
 
-    public ForEachPerformanceTest(int size)
+    public ForEachPerformanceTest(IEnumerable<T> enumerable)
     {
-        list = new List<int>(size);
-        for (var i = 0; i < size; ++i)
-        {
-            list.Add(0);
-        }
+        this.enumerable = enumerable;
     }
 
     void IPerformanceTest.Run()
     {
-        foreach (var element in list)
+        foreach (var element in enumerable)
         {
 #pragma warning disable 219
             var a = element;
